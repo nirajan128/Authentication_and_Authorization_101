@@ -1,0 +1,14 @@
+O AUTH PROJECT -NODE REACT TS
+
+[SECTION 1: PROJECT SET UP]
+1. Create folder for client and server
+
+[SERVER]
+1. Initialize node by running npm init script -y
+2. Install required node packages, also instal the same instance of it for typescript runn : npm insatall -D @types, in devDependencies
+   npm install express dotenv passport passport-google-oauth20 pg bcryptjs jsonwebtoken cors
+   npm install -D typescript @types/node @types/express @types/passport @types/passport-google-oauth20 ts-node nodemon
+3. Run npx tsc --init command which will generate a tsconfig.json file, set the otdie to ./dist and rootdir to ./src
+4. create a src folder in which create a index.ts file
+5. in package .json, add scripts for run build and dev
+6. crea folder dor config, middleware and routs, create gitignore and .env files
