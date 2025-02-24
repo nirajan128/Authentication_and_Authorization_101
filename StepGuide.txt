@@ -12,3 +12,5 @@ O AUTH PROJECT -NODE REACT TS
 4. create a src folder in which create a index.ts file
 5. in package .json, add scripts for run build and dev
 6. crea folder dor config, middleware and routs, create gitignore and .env files
+7. Setup express, port , cors and other required middle ware in index ts
+8. Setup db in config
