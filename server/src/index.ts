@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import passport from "passport";
 import session from "express-session"
+import "./config/passport"; //import the possport configuration to initialized it in the app
 
 dotenv.config();
 const app = express();
@@ -29,7 +30,7 @@ app.use(
   //Middleware for app to use passpprt
   app.use(passport.initialize());
   app.use(passport.session());
-  
+
   app.get("/", (req,res)=>{
     res.json("Helloo")
   })
