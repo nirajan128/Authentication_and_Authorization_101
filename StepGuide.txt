@@ -26,4 +26,8 @@ O AUTH PROJECT -NODE REACT TS
 7. [Only data defined in user interface will be available to be shown in req.user]
 
   frontend
-  1. install react using vite and use react ts as template
+  1. install react using vite and use react ts as template, and run npm install
+  2. install axios and react-router-dom
+  3. create a utility folder, in it create aapi.ts which  serves the routes from backendd
+  4. Add bootstrap to the index.html
+  5. In App.tsx user router to link the pages
