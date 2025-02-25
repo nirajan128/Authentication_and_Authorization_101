@@ -18,3 +18,9 @@ O AUTH PROJECT -NODE REACT TS
 [SECTION: SESSION AND GOOGLE OAUTH]
 1. Import ecpress session and passport in index.ts
 2. Set up session, and passport as middleware
+3. careate passport.ts which uses GoogleStartegy, use the Google startegy, use the interface for user, serialize and deserialize the user
+4. Create a authhRout.ts, which will include route for /google redirects to the sign in page with scope profile and image and /google/callback has success and faliuire redirects
+5. create a protectedRoutets, creat a isAuthenticated middle ware which checks if the user is authenticated
+6. create types folder in it create a express folder init create index.d.ts
+   this file will declare global namespace for express which will extend Express.User to the USer Iinterface that is created
+7. [Only data defined in user interface will be available to be shown in req.user]

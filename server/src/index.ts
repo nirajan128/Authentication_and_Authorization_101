@@ -4,6 +4,8 @@ import cors from "cors";
 import passport from "passport";
 import session from "express-session"
 import "./config/passport"; //import the possport configuration to initialized it in the app
+import authRoute from "./routes/authRoute"
+import protectedData from "./routes/protectedRoute"
 
 dotenv.config();
 const app = express();
@@ -31,11 +33,9 @@ app.use(
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.get("/", (req,res)=>{
-    res.json("Helloo")
-  })
-
-
+  app.use("/auth", authRoute); //middleware to use route
+  app.use("/protected", protectedData)
+  
   // Start server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
