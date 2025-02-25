@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import db from "./config/db";
+import passport from "passport";
+import session from "express-session"
 
 dotenv.config();
 const app = express();
@@ -15,8 +16,20 @@ app.use(
     })
   );
   
+  //Middleware for the app to use JSON
   app.use(express.json());
 
+  //Middleware for setting session
+  app.use(session({
+    secret: process.env.SESSION_SECRET!,
+    resave: false,
+    saveUninitialized: false
+  }))
+
+  //Middleware for app to use passpprt
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
   app.get("/", (req,res)=>{
     res.json("Helloo")
   })

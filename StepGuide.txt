@@ -14,3 +14,7 @@ O AUTH PROJECT -NODE REACT TS
 6. crea folder dor config, middleware and routs, create gitignore and .env files
 7. Setup express, port , cors and other required middle ware in index ts
 8. Setup db in config
+
+[SECTION: SESSION AND GOOGLE OAUTH]
+1. Import ecpress session and passport in index.ts
+2. Set up session, and passport as middleware
