@@ -1,8 +1,22 @@
 import {User} from '../../config/passport'; // Import the custom User interface from the passport configuration
 
-// This file extends the default Express User interface with a custom User type from our passport configuration.
-// By doing this, TypeScript will recognize the custom properties we have defined for the user object (such as id, google_id, firstName, lastName, and email).
-// This enables proper type checking, IntelliSense autocompletion, and reduces runtime errors when accessing req.user in routes or middleware.
+
+// 📄 This is a TypeScript declaration file (.d.ts). Declaration files provide type definitions without actual implementation.
+// They help TypeScript understand the shape and structure of existing JavaScript code or third-party libraries.
+
+// 🔍 Why `.d.ts`? 
+// - Provides type information to TypeScript without adding executable code.
+// - Allows you to extend or modify existing libraries' type definitions (like Express).
+// - Helps maintain type safety and avoid TypeScript errors for custom properties (e.g., req.user.firstName).
+
+// 📁 Why inside the `express` folder?
+// - Organizes custom type definitions specifically for the Express library.
+// - Makes it clear that the types in this file are meant to extend Express’s built-in types.
+// - TypeScript recognizes that you're extending Express's internal `User` interface by matching the folder name with the library name.
+
+// 🔗 Purpose of this declaration:
+// - Extends Express's built-in `User` interface to include custom properties defined in your own `User` interface from the Passport configuration.
+// - Allows you to access custom user properties (like firstName, lastName, email) on `req.user` without TypeScript errors.
 
 declare global {
     namespace Express {

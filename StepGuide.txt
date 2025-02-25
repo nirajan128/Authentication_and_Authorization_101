@@ -24,3 +24,6 @@ O AUTH PROJECT -NODE REACT TS
 6. create types folder in it create a express folder init create index.d.ts
    this file will declare global namespace for express which will extend Express.User to the USer Iinterface that is created
 7. [Only data defined in user interface will be available to be shown in req.user]
+
+  frontend
+  1. install react using vite and use react ts as template
