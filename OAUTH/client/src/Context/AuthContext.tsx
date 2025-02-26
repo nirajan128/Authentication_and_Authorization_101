@@ -5,8 +5,8 @@ import { fetchDashboard } from "../Utilities/Api";
 interface User {
   id: number;
   google_id: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
 }
 

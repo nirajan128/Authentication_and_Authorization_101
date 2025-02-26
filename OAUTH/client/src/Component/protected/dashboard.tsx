@@ -6,7 +6,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-2xl font-bold">Welcome, {user?.firstName}!</h1>
+      <h1 className="text-2xl font-bold">Welcome, {user?.firstname}!</h1>
       <p>Email: {user?.email}</p>
     </div>
   );
