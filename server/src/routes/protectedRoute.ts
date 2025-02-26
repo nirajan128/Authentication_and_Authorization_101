@@ -15,7 +15,9 @@ function isAuthenticated(req:Request,res:Response,next: NextFunction){
 router.get("/dashboard", isAuthenticated, (req:Request,res: Response) =>{
     if(req.user){
         const user = req.user as User; //Denotin express.User as the USer interface thats defined in passport config
-        res.json({firstname: user.firstname, lastname: user.lastname})
+        /* res.json({firstname: user.firstname, lastname: user.lastname}) */
+        /* res.send(`Welcome ${user.firstname}`) */
+        res.json(user);
     }
 })
 

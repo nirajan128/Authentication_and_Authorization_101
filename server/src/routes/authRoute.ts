@@ -11,7 +11,7 @@ router.get("/google", passport.authenticate('google', {
 
 router.get("/google/callback", passport.authenticate('google', {
     failureRedirect: "http://localhost:5000/auth/faliure",
-    successRedirect: 'http://localhost:5000/protected/dashboard'
+    successRedirect: 'http://localhost:5173/dashboard'
 }))
 
 router.get("/faliure", (req,res) =>{

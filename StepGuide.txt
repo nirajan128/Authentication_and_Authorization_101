@@ -31,3 +31,5 @@ O AUTH PROJECT -NODE REACT TS
   3. create a utility folder, in it create aapi.ts which  serves the routes from backendd
   4. Add bootstrap to the index.html
   5. In App.tsx user router to link the pages
+  6. Create AuthContext.tsx for gloabl satet once user is logged in
+  7. In app.tsx use the same Auth context and add protected route to ensure the user is loggged in
