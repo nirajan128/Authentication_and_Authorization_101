@@ -9,3 +9,6 @@
  5. Update tsconfig.json , set ./rootDir and .outDir
  6.Create a index.ts file and setup server
  7. install ts-node before starting the server
+ 8. Install bycryt and jsonwebtokenpackages
+ 9. Create utilities folder and jwtGenerator.ts whhich uses jsonwebtoken
+ 10. crete a JWT secret using node -e "console.log(require('crypto').randomBytes(32).toString('hex'))" in terminal
