@@ -10,5 +10,6 @@
  6.Create a index.ts file and setup server
  7. install ts-node before starting the server
  8. Install bycryt and jsonwebtokenpackages
- 9. Create utilities folder and jwtGenerator.ts whhich uses jsonwebtoken
+ 9. Create utilities folder and jwtGenerator.ts whhich uses jsonwebtoken and egnerate a jsonweb token
  10. crete a JWT secret using node -e "console.log(require('crypto').randomBytes(32).toString('hex'))" in terminal
+11. Create a jwtAuth middleware which verifies the web token sent from the client side and if valid moves to next middleware
