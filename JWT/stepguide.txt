@@ -21,3 +21,7 @@
  --TO test login and register route, select body in postman and include the credentials as json {key: value}
  --To test the preotected route, copy the tjwt toen geneated from login route, include 
    --it in bearer token in AUtorization>AUthTye>BearerToken
+
+
+   [Srt up frontend]
+   1.Create a cotext folder which uses authcontext for global state after the user is logged in
