@@ -1,38 +1,41 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import db from "../config/db"; // Import your database connection
 
 dotenv.config();
 
-/* The inface inherits express Request mean we can use it as a express Request */
- interface AuthRequest extends Request {
-    user?: string
- }
+/* Define AuthRequest to include user */
+interface AuthRequest extends Request {
+    user?: any;
+}
 
- /* Whenever a client makes a request for protectedRoute,a JWT token is sent as a part of header if user is successfully logged in
- This Authenticator uses that token and verify it against the secret if thoes match the middleware moves on to the next function  */
- const jwtAuthenticator =  (req: AuthRequest, res:Response, next:NextFunction) => {
-
-    // 1. splits the Authorization header sent from the client side and gets the token value
+const jwtAuthenticator = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     const authHeader = req.header("Authorization")?.split(" ")[1];
 
-    if (!authHeader ) {
-      return res.status(401).json({ message: "No token, authorization denied" });
+    if (!authHeader) {
+       res.status(401).json({ message: "No token, authorization denied" });
     }
 
-    try{
-      // 2. verify the token sent from the client side
-      const decoded = jwt.verify(authHeader, process.env.JWT_SECRET as string) as {id: string};
+    try {
+        // 1️. Verify the JWT token
+        const decoded = jwt.verify(authHeader!, process.env.JWT_SECRET as string) as { id: string };
 
-       // 3️. Attach user ID to the request
-      req.user = decoded.id;
+        // 2️. Fetch user details from the database
+        const userQuery = await db.query("SELECT id, firstname, lastname, email FROM usermone WHERE id = $1", [decoded.id]);
 
-      //4. continue to next middleware
-      next();
+        if (userQuery.rows.length === 0) {
+             res.status(401).json({ message: "User not found" });
+        }
 
-    }catch(error){
-       return res.status(401).json({message: "Invalid token"})
+        // 3️. Attach full user data to request
+        req.user = userQuery.rows[0];
+
+        // 4️. Continue to next middleware
+        next();
+    } catch (error) {
+        res.status(401).json({ message: "Invalid token" });
     }
- }
+};
 
- export default jwtAuthenticator;
+export default jwtAuthenticator;

@@ -15,3 +15,9 @@
 11. Create a jwtAuth middleware which verifies the web token sent from the client side and if valid moves to next middleware
 12. Create rouetes for register and login , in route folder/userRoute.js, apply the registering logic for register and return a sucess regster messsage if user is registerd,
     as for login after the user has been logged in generate a jwtToken usng jwtGenerator and return the token as json response to the client
+13. Create a protected route which uses JWTauthenticator middle ware if its passes run nrx midddle ware which gets the user details.
+ --In the middle are after verifying user, set the req.id to the query result from the db
+
+ --TO test login and register route, select body in postman and include the credentials as json {key: value}
+ --To test the preotected route, copy the tjwt toen geneated from login route, include 
+   --it in bearer token in AUtorization>AUthTye>BearerToken
