@@ -26,4 +26,4 @@
    [Srt up frontend]
    1.Create a cotext folder which uses authcontext for global state after the user is logged in
    2. Create a component folder and isub divde the folder into pages, shared and preotected
-   3. Create homepage an shared Nav bar
+   3. Create homepage an shared Nav bar,spinner,inputLael, and errorAlert Components
