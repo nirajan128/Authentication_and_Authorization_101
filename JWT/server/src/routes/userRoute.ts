@@ -50,8 +50,8 @@ route.post("/login", async (req:Request, res:Response) => {
         }
 
         //4. If the password matches, Generate a JWT token and return it to client
-        const generatedJwtToken = generateToken(existingUser.rows[0].id);
-        res.json({token: generatedJwtToken});
+        const token = generateToken(existingUser.rows[0].id);
+        res.json(token);
     } catch (error) {
         
     }

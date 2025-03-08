@@ -28,3 +28,5 @@
    2. Create a component folder and isub divde the folder into pages, shared and preotected
    3. Create homepage an shared Nav bar,spinner,inputLael, and errorAlert Components
    4. Create register form and navigate to login page after succesful log in
+   5. Add login functionality and pass the generated token from backedn to the AUthcontext
+   6. Create Dashboard, use token from the AuthContext, store it in header for get request for dashboard, in the backend JWTAuth middleware will check the token

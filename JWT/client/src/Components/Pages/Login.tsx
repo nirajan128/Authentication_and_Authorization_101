@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import {  useAuth } from "../../context/AuthContext";
 import Spinner from "../shared/Spinner";
-/* import { useNavigate } from "react-router-dom"; */
+import { useNavigate } from "react-router-dom";
 import ErrorAlertStatus from "../shared/ErrorAlert";
 import InputLabel from "../shared/InputLabel";
 
 export default function Login(){
     const API_BASE_URL = "http://localhost:3000"; // Your Express backend URL
-    /* const navigate = useNavigate(); */
+    const navigate = useNavigate();
     const {login} = useAuth();
 
     const[inputValue, setInputValue] = useState({
@@ -39,7 +39,7 @@ export default function Login(){
            
            //Login method from AuthCOntext, takes generated token a param
            login(tokenResponse);
-           alert("User logged in")
+           navigate("/dashboard")
         } catch (error) {
             console.log(error);
             setErrorMessage("Error while logging in");

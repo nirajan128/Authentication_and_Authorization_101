@@ -11,30 +11,36 @@ interface AuthRequest extends Request {
 }
 
 const jwtAuthenticator = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
-    const authHeader = req.header("Authorization")?.split(" ")[1];
-
-    if (!authHeader) {
-       res.status(401).json({ message: "No token, authorization denied" });
-    }
-
     try {
-        // 1️. Verify the JWT token
-        const decoded = jwt.verify(authHeader!, process.env.JWT_SECRET as string) as { id: string };
+        // 1️⃣ Extract token from Authorization header
+        const authHeader = req.header("Authorization");
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            res.status(401).json({ message: "No token, authorization denied" });
+            return;
+        }
 
-        // 2️. Fetch user details from the database
+        const token = authHeader.split(" ")[1];
+
+        // 2️⃣ Verify the JWT token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: string };
+
+        // 3️⃣ Fetch user details from the database
         const userQuery = await db.query("SELECT id, firstname, lastname, email FROM usermone WHERE id = $1", [decoded.id]);
 
         if (userQuery.rows.length === 0) {
-             res.status(401).json({ message: "User not found" });
+           res.status(401).json({ message: "User not found" });
+           return;
         }
 
-        // 3️. Attach full user data to request
+        // 4️⃣ Attach user data to request
         req.user = userQuery.rows[0];
 
-        // 4️. Continue to next middleware
+        // 5️⃣ Continue to next middleware
         next();
     } catch (error) {
-        res.status(401).json({ message: "Invalid token" });
+        console.error("JWT Auth Error:", error);
+         res.status(401).json({ message: "Invalid or expired token" });
+         return;
     }
 };
 

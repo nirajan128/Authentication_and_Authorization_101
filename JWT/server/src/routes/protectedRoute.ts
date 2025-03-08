@@ -10,8 +10,7 @@ const route = Router();
 route.get("/dashboard", jwtAuthenticator, (req:Request, res:Response, next:NextFunction) => {
     const validUser = (req as any).user;
     console.log(validUser);
-    const userName = validUser.email;
-     res.json({message: `Welcome to your dash board ${userName}`});
+     res.json(validUser);
 })
 
 export default route;
