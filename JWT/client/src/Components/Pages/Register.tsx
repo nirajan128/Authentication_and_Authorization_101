@@ -3,9 +3,11 @@ import InputLabel from "../shared/InputLabel";
 import Spinner from "../shared/Spinner";
 import ErrorAlertStatus from "../shared/ErrorAlert";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function Register(){
     const API_BASE_URL = "http://localhost:3000"; // Your Express backend URL
+    const navigate = useNavigate();
 
     //1. States
    const[inputValue, setInputValue] = useState({
@@ -52,7 +54,8 @@ export default function Register(){
       try {
         const response = await axios.post(`${API_BASE_URL}/user/register`, {email,password,firstName,lastName});
         setErrorMessage(null);
-        alert("User successfully registered");
+        alert("User successfully registered")
+        navigate("/login")
         return response.data;   
       } catch (error) {
         console.error(error);
