@@ -1,0 +1,12 @@
+[OAuth and JWT project setup]
+
+[SECTION1: PROJECT SETUP]
+ --BACKEND
+ 1. create a server folder and initiate npm by runin command npm init -y
+ 2. Install requred dependencies
+ 3. Install typescript by running npm install typescript adn run npx tsc --init to initialize typescript
+ 4. Update the scripts for buil, run,and dev in package .json
+ 5. Update tsconfig.json , set ./rootDir and .outDir
+ 6.Create a index.ts file and setup server
+ 7. install ts-node before starting the server
+ 8. Configure express server
