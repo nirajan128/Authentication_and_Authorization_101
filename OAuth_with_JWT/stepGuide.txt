@@ -3,7 +3,7 @@
 [SECTION1: PROJECT SETUP]
  --BACKEND
  1. create a server folder and initiate npm by runin command npm init -y
- 2. Install requred dependencies
+ 2. Install requred dependencies -- also install passport-jwt
  3. Install typescript by running npm install typescript adn run npx tsc --init to initialize typescript
  4. Update the scripts for buil, run,and dev in package .json
  5. Update tsconfig.json , set ./rootDir and .outDir
