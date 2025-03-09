@@ -13,3 +13,5 @@
  9. create express.d.ts in a folder which inheru=its express.user
  10. Setup JWTGenerator utils and JWT Authenticator middleware
  11. In JWT Authenticator, get the token from both query param(for user logging from OAuth) and header for user logging without OAuth
+ 12. Create Routes for login and register in USerRoute.ts
+ 13.

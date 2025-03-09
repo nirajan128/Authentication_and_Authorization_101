@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import userRoute from "./route/userRoute";
 
 const app = express();
 const PORT = 5000;
@@ -8,6 +9,7 @@ const PORT = 5000;
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 
+app.use("/user", userRoute)
 
 app.get("/",(req,res) =>{
     res.json("HEllo");
