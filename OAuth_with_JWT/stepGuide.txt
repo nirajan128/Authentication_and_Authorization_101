@@ -10,3 +10,6 @@
  6.Create a index.ts file and setup server
  7. install ts-node before starting the server
  8. Configure express server
+ 9. create express.d.ts in a folder which inheru=its express.user
+ 10. Setup JWTGenerator utils and JWT Authenticator middleware
+ 11. In JWT Authenticator, get the token from both query param(for user logging from OAuth) and header for user logging without OAuth
