@@ -14,4 +14,6 @@
  10. Setup JWTGenerator utils and JWT Authenticator middleware
  11. In JWT Authenticator, get the token from both query param(for user logging from OAuth) and header for user logging without OAuth
  12. Create Routes for login and register in USerRoute.ts
- 13.
+ 13. Create route for google, create auth for google using isAuthenticated
+ 14. Cretae a protected dashboard which uses JWTAuth and GoogleAuth for middleware
+ 15. set up session and initalize passport in index.ts

@@ -2,6 +2,7 @@ import { Router,Request,Response } from "express";
 import db from "../config/db";
 import bcrypt from "bcryptjs";
 import generateToken from "../utilities/jwtGenerator";
+import passport from "passport";
 import { error } from "console";
 
 //set up router
@@ -79,5 +80,16 @@ route.post("/login", async(req:Request, res: Response)=>{
         
     }
 })
+
+//[GOOGLE ROUTES]
+route.get("/google",passport.authenticate("google", {scope:['profile', 'email']}))
+
+route.get("/google/callback",
+    passport.authenticate("google", { session: false }),
+    (req, res) => {
+      const token = generateToken((req.user as any).id);
+      res.redirect(`http://localhost:3000?token=${token}`);
+    }
+  );
 
 export default route;
