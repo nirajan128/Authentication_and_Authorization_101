@@ -4,7 +4,9 @@ function HomePage() {
   return (
     <div>
       <NavBar />
-      <h1>JWT AUTH</h1>
+      <div className="d-flex justify-content-center align-items-center p-2">
+      <h1>Google and JWT Authentication</h1>
+      </div>
     </div>
   );
 }
