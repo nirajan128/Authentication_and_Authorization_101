@@ -17,3 +17,9 @@
  13. Create route for google, create auth for google using isAuthenticated
  14. Cretae a protected dashboard which uses JWTAuth and GoogleAuth for middleware
  15. set up session and initalize passport in index.ts
+
+ [Frontend]
+ 1. Setup basic structure
+ 2. Create AuthContext for global user logged in stat, create a functionality login which gets the token from backend and sets the token
+ 3. setup register
+ 3. setup login for  normal login and google login 

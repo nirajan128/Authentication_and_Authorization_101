@@ -6,7 +6,7 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 export default function Register(){
-    const API_BASE_URL = "http://localhost:3000"; // Your Express backend URL
+    const API_BASE_URL = "http://localhost:5000"; // Your Express backend URL
     const navigate = useNavigate();
 
     //1. States
@@ -52,7 +52,7 @@ export default function Register(){
       }
     
       try {
-        const response = await axios.post(`${API_BASE_URL}/user/register`, {email,password,firstName,lastName});
+        const response = await axios.post(`${API_BASE_URL}/auth/register`, {email,password,firstName,lastName});
         setErrorMessage(null);
         alert("User successfully registered")
         navigate("/login")

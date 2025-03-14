@@ -12,7 +12,7 @@ const route = Router();
 //Also uses [isAuthenticated middleware] of express for googleOAuth
 route.get("/dashboard", jwtAuthenticator,isAuthenticated, (req:Request, res:Response, next:NextFunction) => {
     const validUser = (req as any).user;
-    console.log(validUser);
+    /* console.log(validUser); */
      res.json(validUser);
 })
 

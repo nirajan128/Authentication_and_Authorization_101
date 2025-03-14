@@ -88,7 +88,9 @@ route.get("/google/callback",
     passport.authenticate("google", { session: false }),
     (req, res) => {
       const token = generateToken((req.user as any).id);
-      res.redirect(`http://localhost:3000?token=${token}`);
+
+      //Sends back the token as url, In the fornt end the Authcontext looks for this token, if found calls login passes the token and sets the token
+      res.redirect(`http://localhost:5173?token=${token}`);
     }
   );
 
