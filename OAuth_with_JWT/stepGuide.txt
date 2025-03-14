@@ -22,4 +22,4 @@
  1. Setup basic structure
  2. Create AuthContext for global user logged in stat, create a functionality login which gets the token from backend and sets the token
  3. setup register
- 3. setup login for  normal login and google login 
+ 3. setup login for normal login and google login 

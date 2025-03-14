@@ -20,67 +20,67 @@ Built with React (TypeScript) frontend, Node.js/Express (TypeScript) backend, an
 
 ### Frontend Workflow:
 
-1. Initial Load:
-- Check URL for token parameter
+1. **Initial Load:**
+   - Check URL for token parameter
 
-2. If token found in URL:
-- Extract token from query parameters
-- Send token to backend for verification (/api/verify-token)
-  - If valid:
-    - Store JWT in memory/local storage
-    - Redirect to dashboard
+2. **If token found in URL:**
+   - Extract token from query parameters
+   - Send token to backend for verification (/api/verify-token)
+     - If valid:
+       - Store JWT in memory/local storage
+       - Redirect to dashboard
 
-   - If invalid:
-    - Clear token
-    - Show error message
+     - If invalid:
+       - Clear token
+       - Show error message
 
-  - Remove token from URL (for security)
+   - Remove token from URL (for security)
 
-3. If no token in URL:
-- Display login options (Email/Password or Google Sign-In)
+3. **If no token in URL:**
+   - Display login options (Email/Password or Google Sign-In)
 
-4. Email/Password Login:
-- User enters credentials
-- Send to backend (/auth/login)
-- Receive JWT
-- Store JWT
-- Redirect to dashboard
+4. **Email/Password Login:**
+   - User enters credentials
+   - Send to backend (/auth/login)
+   - Receive JWT
+   - Store JWT
+   - Redirect to dashboard
 
-5. Google Sign-In:
-- User clicks Google button
-- Redirect to Google OAuth flow
+5. **Google Sign-In:**
+   - User clicks Google button
+   - Redirect to Google OAuth flow
 
-6. For subsequent requests:
-- Include JWT in Authorization header
+6. **For subsequent requests:**
+   - Include JWT in Authorization header
 
 ### Backend Workflow:
 
-1. Google OAuth Callback (/auth/google/callback):
-- Receive authorization code from Google
-- Exchange code for Google tokens
-- Verify Google ID token
-- Find or create user in database
--  Generate JWT for user
-- Redirect to frontend with JWT in URL parameter
+1. **Google OAuth Callback (/auth/google/callback):**
+   - Receive authorization code from Google
+   - Exchange code for Google tokens
+   - Verify Google ID token
+   - Find or create user in database
+   -  Generate JWT for user
+   - Redirect to frontend with JWT in URL parameter
 
-2. Email/Password Login (/auth/login):
-- Validate credentials
-- Generate JWT
-- Send JWT in response
+2. **Email/Password Login (/auth/login):**
+   - Validate credentials
+   - Generate JWT
+   - Send JWT in response
 
-4. Protected Routes:
- #### JWT Checker Middleware:
+4. **Protected Routes:
+ #### JWT Checker Middleware:**
    - Extract token from Authorization header or query parameter
     - Verify JWT
     - If valid, move to next function
     - If invalid, return 401 Unauthorized
 
-3. Token Verification middleware (Dashboard):
-- Receive token from frontend
-- Verify JWT signature
-- Check token expiration
-- If valid, send user data 
-- If invalid, return error
+3. **Token Verification middleware (Dashboard):**
+   - Receive token from frontend
+   - Verify JWT signature
+   - Check token expiration
+   - If valid, send user data 
+   - If invalid, return error
 
 ---
 
@@ -119,6 +119,4 @@ npm run dev
 ```
 
 ---
-## License
-
-This project is licensed under the MIT License.
+**
