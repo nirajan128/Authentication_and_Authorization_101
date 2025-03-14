@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 interface AuthContextType {
   token: string | null; // Stores authentication token
   login: (token: string) => void; // Function to update authentication state
+  logout: () => void; 
 }
 
 // 2. Create a context for authentication with an undefined initial value
@@ -40,6 +41,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     navigate("/dashboard"); // Redirect to dashboard after login
   };
 
+  const logout = () => {
+    setToken(null); // Clear token state
+    localStorage.removeItem("token"); // Remove token from storage
+    navigate("/login"); // Redirect to login page
+  };
+
     // Extract token from URL query params on first load
     useEffect(() => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -54,7 +61,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     // Provide authentication state and login function to all children components
-    <AuthContext.Provider value={{token, login }}>
+    <AuthContext.Provider value={{token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

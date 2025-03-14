@@ -15,7 +15,7 @@ export default function Dashboard(){
 
     //1. Setup resquired states and value
     const API_BASE_URL = "http://localhost:5000"; // Your Express backend URL
-    const {token} = useAuth();
+    const {token, logout} = useAuth();
     const navigate = useNavigate();
     const [user, setUser] = useState<UserData | null>(null);
 
@@ -30,7 +30,7 @@ export default function Dashboard(){
         const fetchUser = async()=>{
            try {
               const response = await axios.get<UserData>(`${API_BASE_URL}/valid/dashboard`, {
-                headers: { Authorization: `Bearer ${token}` },
+                headers: { Authorization: `Bearer ${token}` }, //sends the token(from AUth context) to backend
               })
               console.log(token)
               setUser(response.data);
@@ -57,6 +57,8 @@ export default function Dashboard(){
       ) : (
         <p>Loading user data...</p>
       )}
+        {/* Logout Button */}
+        <button onClick={logout} className="btn btn-danger mt-3">Logout</button>
     </div>
     )
 
