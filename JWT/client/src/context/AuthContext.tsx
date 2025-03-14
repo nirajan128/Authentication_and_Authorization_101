@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useState, useContext, ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 
 // 1. Define the shape of the authentication context interface
 interface AuthContextType {
   token: string | null; // Stores authentication token
   login: (token: string) => void; // Function to update authentication state
+  logout: () => void; 
 }
 
 // 2. Create a context for authentication with an undefined initial value
@@ -26,6 +28,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   // Retrieve token from local storage or set null if not available
   const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
+  const navigate = useNavigate(); // Navigation hook
 
   // Function to handle user login and update authentication state
   const login = (newToken: string) => {
@@ -35,9 +38,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("token", newToken);
   };
 
+  const logout = () => {
+    setToken(null); // Clear token state
+    localStorage.removeItem("token"); // Remove token from storage
+    navigate("/login"); // Redirect to login page
+  };
+
   return (
     // Provide authentication state and login function to all children components
-    <AuthContext.Provider value={{token, login }}>
+    <AuthContext.Provider value={{token, login,logout }}>
       {children}
     </AuthContext.Provider>
   );

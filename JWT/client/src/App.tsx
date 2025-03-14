@@ -7,16 +7,17 @@ import Dashboard from "./Components/Protected/Dashboard";
 
 function App() {
   return (
-    <AuthProvider>
+   
       <Router>
+         <AuthProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
+        </AuthProvider>
       </Router>
-    </AuthProvider>
   );
 }
 

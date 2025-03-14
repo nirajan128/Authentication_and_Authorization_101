@@ -4,7 +4,9 @@ function HomePage() {
   return (
     <div>
       <NavBar />
-      <h1>JWT AUTH</h1>
+      <div className="d-flex justify-content-center align-items-center p-2" style={{height: "80vh"}}>
+      <h1 className="shadow p-3">JWT AUTH</h1>
+      </div>
     </div>
   );
 }

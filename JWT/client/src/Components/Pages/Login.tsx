@@ -54,18 +54,12 @@ export default function Login(){
 
 
     return (
-        <div className="d-flex justify-content-center align-items-center customHeight">
-      <div className="bg-body shadow p-4 w-100" style={{ maxWidth: "400px" }}>
+        <div className="d-flex justify-content-center align-items-center customHeight bg-dark" style={{height: '100vh'}}>
+      <div className="bg-light shadow p-4 w-100" style={{ maxWidth: "400px" }}>
         <form onSubmit={handleSubmit}>
           <div className="text-center">
-            <img
-              className="mb-4"
-              src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-              alt="Bootstrap Logo"
-              width="72"
-              height="57"
-            />
-            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+            <h1>JWT AUTH</h1>
+            {/* <h1 className="h3 mb-3 fw-normal">Please sign in</h1> */}
           </div>
 
            {/* Email Input */}
@@ -87,7 +81,7 @@ export default function Login(){
                   />
 
             {/* Submit Button */}
-            <button className="btn btn-primary bgAccent text-dark mt-3" disabled={loading}>
+            <button className="btn btn-primary bgAccent text-dark mt-3 w-100" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
         {/* Conditionally render AlertStatus component */}
