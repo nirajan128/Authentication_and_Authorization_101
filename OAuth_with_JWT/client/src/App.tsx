@@ -7,7 +7,6 @@ import Dashboard from "./Components/Protected/Dashboard";
 
 function App() {
   return (
-    
       <Router>
         <AuthProvider>
         <Routes>

@@ -4,8 +4,8 @@ function HomePage() {
   return (
     <div>
       <NavBar />
-      <div className="d-flex justify-content-center align-items-center p-2">
-      <h1>Google and JWT Authentication</h1>
+      <div className="d-flex justify-content-center align-items-center p-2" style={{height: "80vh"}}>
+      <h1 className="shadow p-3">Google and JWT Authentication</h1>
       </div>
     </div>
   );

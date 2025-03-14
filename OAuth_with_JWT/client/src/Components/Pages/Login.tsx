@@ -70,18 +70,12 @@ export default function Login() {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center">
-      <div className="bg-body shadow p-4 w-100 mt-5" style={{ maxWidth: "400px" }}>
+    <div className="d-flex justify-content-center align-items-center bg-dark" style={{height: '100vh'}}>
+      <div className="bg-light shadow p-4 w-100 mt-5" style={{ maxWidth: "400px" }}>
         <form onSubmit={handleSubmit}>
           <div className="text-center">
-            <img
-              className="mb-4"
-              src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-              alt="Bootstrap Logo"
-              width="72"
-              height="57"
-            />
-            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+           <h1>OAuth and JWT</h1>
+           {/*  <h3 className="h3 mb-3 fw-normal">Please sign in</h3> */}
           </div>
 
           {/* Email Input */}
@@ -103,22 +97,25 @@ export default function Login() {
           />
 
           {/* Submit Button */}
-          <button className="btn btn-primary bgAccent text-dark mt-3" disabled={loading}>
+          <button className="btn btn-primary bgAccent text-dark mt-3 w-100" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
           </button>
 
           {/* Error Message */}
           {errorMessage && <ErrorAlertStatus message={errorMessage} state="alert-danger" />}
 
-          <p className="mt-5 mb-3 text-body-secondary text-center">©2025</p>
-        </form>
-
-        {/* Google Login Button */}
+          <p className="text-center p-0 mb-0 mt-4"> OR </p>
+          {/* Google Login Button */}
         <div className="mt-3 text-center">
-          <button className="btn btn-outline-primary w-100" onClick={handleGoogleLogin}>
+          <button className="btn btn-outline-danger w-100" onClick={handleGoogleLogin}>
             Sign in with Google
           </button>
         </div>
+
+          <p className="mt-5 mb-3 text-body-secondary text-center">©2025</p>
+        </form>
+
+        
       </div>
     </div>
   );

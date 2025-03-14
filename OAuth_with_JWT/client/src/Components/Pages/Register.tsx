@@ -74,8 +74,8 @@ export default function Register(){
 
    //2. Components
    return(
-    <div className="d-flex justify-content-center align-items-center customHeight">
-    <div className="bg-body shadow p-4 w-100 mt-5" style={{ maxWidth: "400px" }}>
+    <div className="d-flex bg-dark justify-content-center align-items-center customHeight">
+    <div className="bg-light shadow p-4 w-100 mt-5" style={{ maxWidth: "400px" }}>
       <form onSubmit={handleSubmit}>
         <div className="text-center">
           <img
