@@ -7,7 +7,7 @@
  3. Install typescript by running npm install typescript adn run npx tsc --init to initialize typescript
  4. Update the scripts for buil, run,and dev in package .json
  5. Update tsconfig.json , set ./rootDir and .outDir
- 6.Create a index.ts file and setup server
+ 6. Create a index.ts file and setup server
  7. install ts-node before starting the server
  8. Install bycryt and jsonwebtokenpackages
  9. Create utilities folder and jwtGenerator.ts whhich uses jsonwebtoken and egnerate a jsonweb token
@@ -18,7 +18,7 @@
 13. Create a protected route which uses JWTauthenticator middle ware if its passes run nrx midddle ware which gets the user details.
  --In the middle are after verifying user, set the req.id to the query result from the db
 
- --TO test login and register route, select body in postman and include the credentials as json {key: value}
+ --To test login and register route, select body in postman and include the credentials as json {key: value}
  --To test the preotected route, copy the tjwt toen geneated from login route, include 
    --it in bearer token in AUtorization>AUthTye>BearerToken
 
